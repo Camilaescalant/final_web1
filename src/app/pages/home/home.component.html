@@ -1,0 +1,48 @@
+<div class="container">
+  <div class="containerNavbar">
+    <!-- Recibimos el boolean que ya tiene el componete -->
+    <!-- Y luego emitimos el cambio en el componente  -->
+    <app-menu
+      [getFlag]="myHeroes"
+      (setMy)="changeToMyHeroe($event)"
+      (setAll)="changeToAllMyHeroe($event)"
+    />
+  </div>
+  <div class="containerCards" *ngIf="myHeroes">
+    <div *ngFor="let superheroe of Superheroes">
+      <div>
+        <img [ngSrc]="superheroe.imagesm" alt="" width="200" height="200" />
+      </div>
+      <div>
+        <button
+          (click)="addSuperhero(superheroe)"
+          *ngIf="myHeroes"
+          class="pressable"
+          type="button"
+        >
+          Agregar
+        </button>
+      </div>
+    </div>
+  </div>
+  <div class="containerCards" *ngIf="!myHeroes">
+    <div *ngFor="let superheroe of mySuperheroes; index as i">
+      <div>
+        <img [ngSrc]="superheroe.imagesm" alt="" width="200" height="200" />
+      </div>
+      <div>
+        <button
+          (click)="deleteSuperhero(i, superheroe)"
+          *ngIf="!myHeroes"
+          class="pressableDelete"
+          type="button"
+        >
+          Eliminar
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+<ngx-spinner type="ball-scale-multiple">
+  <p style="font-size: 20px; color: white">Loading...</p>
+</ngx-spinner>

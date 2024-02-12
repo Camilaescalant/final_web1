@@ -1,0 +1,68 @@
+.container {
+  display: flex;
+}
+
+.containerCards {
+  background-color: #ffffff;
+  justify-content: center;
+  align-items: flex-end;
+  padding: 1em;
+  direction: ltr;
+  overflow: auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
+  gap: 20px 20px;
+  grid-template-areas:
+    ". . . ."
+    ". . . ."
+    ". . . .";
+}
+
+.containerNavbar {
+  width: 20%;
+}
+
+.inputDefault {
+  background-color: rgb(225, 226, 239, 35%);
+  border-radius: 5px;
+  border: none;
+  width: 450px;
+  height: 52px;
+  text-align: center;
+  margin-top: 10px;
+}
+
+.pressable {
+  width: 130px;
+  border: 1px solid #176b87;
+  border-radius: 10px;
+  padding: 10px;
+  text-align: center;
+  cursor: pointer;
+  color: #dcf2f1;
+  background-color: #176b87;
+  margin-top: 10px;
+}
+
+.pressable:hover {
+  background-color: #7fc7d9;
+  color: #1d2b53;
+}
+
+.pressableDelete {
+  width: 130px;
+  border: 1px solid #d24545;
+  border-radius: 10px;
+  padding: 10px;
+  text-align: center;
+  cursor: pointer;
+  color: #dcf2f1;
+  background-color: #ff004d;
+  margin-top: 10px;
+}
+
+.pressableDelete:hover {
+  background-color: transparent;
+  color: #d24545;
+}

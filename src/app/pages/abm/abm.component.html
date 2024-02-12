@@ -1,0 +1,51 @@
+<button type="button" class="button" (click)="redirect()">
+  Volver al INICIO
+</button>
+<div *ngIf="users" class="containerUser">
+  <div *ngFor="let user of users; index as p" class="card">
+    <img src="{{ user.photoUrl }}" alt="" />
+    <p>Nombre: {{ user.name }}</p>
+    <p *ngIf="user.rol == 2">Rol: Admin</p>
+    <p *ngIf="user.rol == 1">Rol: Normal</p>
+    <p>Nickname {{ user.nickname }}</p>
+    <button type="button" class="button" (click)="deleteUser(user.id, p)">
+      Eliminar Usuario
+    </button>
+    <button
+      *ngIf="user.rol == 1"
+      type="button"
+      class="button"
+      (click)="changeRol(user.id, 2)"
+    >
+      Promover a admin
+    </button>
+    <button
+      *ngIf="user.rol == 2"
+      type="button"
+      class="button"
+      (click)="changeRol(user.id, 1)"
+    >
+      Revocar admin
+    </button>
+  </div>
+</div>
+
+<div class="containerCards">
+  <div *ngFor="let superheroe of superheroes; index as i">
+    <div>
+      <img [ngSrc]="superheroe.imagesm" alt="" width="200" height="200" />
+    </div>
+    <div>
+      <button
+        class="pressableDelete"
+        type="button"
+        (click)="deleteSuperheroe(superheroe.id, i)"
+      >
+        Eliminar
+      </button>
+    </div>
+  </div>
+</div>
+<ngx-spinner type="ball-scale-multiple">
+  <p style="font-size: 20px; color: white">Loading...</p>
+</ngx-spinner>

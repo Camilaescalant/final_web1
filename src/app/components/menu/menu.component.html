@@ -1,0 +1,33 @@
+<div class="container">
+  <div>
+    <h2>Superheroe App</h2>
+  </div>
+  <div class="ctnBtn">
+    <button type="button" class="pressable" (click)="redirect()">
+      Ir a mi perfil
+    </button>
+
+  </div>
+
+  <div class="ctnBtn">
+    <button
+      [ngClass]="getFlag == true ? 'pressable' : 'pressableActive'"
+      type="button"
+      (click)="setAllHeroe(true)"
+    >
+      Mis Superheroes
+    </button>
+    <button
+      [ngClass]="getFlag == false ? 'pressable' : 'pressableActive'"
+      type="button"
+      (click)="setMyHeroe(false)"
+    >
+      Ver todos los superheros
+    </button>
+  </div>
+  <div>
+    <button class="pressable" type="button" (click)="logout()">
+      Salir de la cuenta
+    </button>
+  </div>
+</div>

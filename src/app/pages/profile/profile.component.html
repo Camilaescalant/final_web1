@@ -1,0 +1,46 @@
+<div *ngIf="userInfo" class="container">
+  <div *ngIf="modEdit" class="containerProfile">
+    <h2>EDITAR PEFIL</h2>
+    <img src="{{ userInfo.photoUrl }}" alt="" class="img" />
+    <input
+      type="email"
+      [(ngModel)]="userInfo.email"
+      name="email"
+      placeholder="Su email"
+      required="required"
+    />
+    <input
+      type="text"
+      [(ngModel)]="userInfo.nickname"
+      name="nickname"
+      placeholder="Su nickname  "
+      required="required"
+    />
+    <button type="button" class="button" (click)="changeProfile()">
+      ACEPTAR CAMBIOS
+    </button>
+    <button type="button" class="button" (click)="disableEdit()">
+      DESCARTAR CAMBIOS
+    </button>
+  </div>
+
+  <div *ngIf="!modEdit" class="containerProfile">
+    <img src="{{ userInfo.photoUrl }}" alt="" class="img" />
+    <p>Hola {{ userInfo.name }}</p>
+    <p>Nickname {{ userInfo.nickname }}</p>
+    <p>Email {{ userInfo.email }}</p>
+    <button type="button" class="button" (click)="activeEdit()">EDITAR</button>
+    <button type="button" class="button" (click)="goBack()">
+      VOLVER AL INICIO
+    </button>
+
+    <button
+      *ngIf="userInfo.rol == 2"
+      type="button"
+      class="button"
+      (click)="goAbm()"
+    >
+      ABM USUAIOS
+    </button>
+  </div>
+</div>
