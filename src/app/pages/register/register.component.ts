@@ -21,7 +21,7 @@ export class RegisterComponent {
 
   register() {
     this.http
-      .post('http://127.0.0.1:8000/api/register', {
+      .post('https://laravelsuperhero.000webhostapp.com/api/register', {
         email: this.email,
         password: this.password,
         name: this.name,

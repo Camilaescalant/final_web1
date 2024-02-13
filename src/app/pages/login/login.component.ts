@@ -18,7 +18,7 @@ export class LoginComponent {
 
   login() {
     this.http
-      .post('http://127.0.0.1:8000/api/login', {
+      .post('https://laravelsuperhero.000webhostapp.com/api/login', {
         email: this.email,
         password: this.password,
       })

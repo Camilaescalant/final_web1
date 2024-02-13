@@ -24,7 +24,7 @@ export class AbmComponent {
   changeRol(idUser: number, rol: number) {
     this.spinner.show();
     axios
-      .put('http://127.0.0.1:8000/api/abm/user/changeRol/', {
+      .put('https://laravelsuperhero.000webhostapp.com/api/abm/user/changeRol/', {
         idUser,
         rol,
       })
@@ -36,7 +36,7 @@ export class AbmComponent {
   deleteUser(idUser: number, index: number) {
     this.spinner.show();
     axios
-      .delete(`http://127.0.0.1:8000/api/abm/user/${idUser}`)
+      .delete(`https://laravelsuperhero.000webhostapp.com/api/abm/user/${idUser}`)
       .then((data) => {
         this.getUser();
       });
@@ -45,7 +45,7 @@ export class AbmComponent {
   deleteSuperheroe(idSuperheroe: number, index: number) {
     this.spinner.show();
     axios
-      .delete(`http://127.0.0.1:8000/api/abm/superheroe/${idSuperheroe}`)
+      .delete(`https://laravelsuperhero.000webhostapp.com/api/abm/superheroe/${idSuperheroe}`)
       .then((data) => {
         this.getSuperhero();
       });
@@ -53,7 +53,7 @@ export class AbmComponent {
 
   getUser() {
     axios
-      .get<User[]>('http://127.0.0.1:8000/api/abm/user')
+      .get<User[]>('https://laravelsuperhero.000webhostapp.com/api/abm/user')
       .then(({data}) => {
         this.users = data;
         this.spinner.hide();
@@ -62,7 +62,7 @@ export class AbmComponent {
 
   getSuperhero() {
     axios
-      .get<Superheroe[]>(`http://127.0.0.1:8000/api/superheroe/`)
+      .get<Superheroe[]>(`https://laravelsuperhero.000webhostapp.com/api/superheroe/`)
       .then((data:any) => {
         this.superheroes = data;
         this.spinner.hide();

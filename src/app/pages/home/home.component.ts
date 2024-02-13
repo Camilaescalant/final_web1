@@ -31,7 +31,7 @@ export class HomeComponent {
     this.spinner.show();
     this.mySuperheroes.splice(index, 1);
     axios
-      .put<Superheroe[]>('http://127.0.0.1:8000/api/mysuperheroe', {
+      .put<Superheroe[]>('https://laravelsuperhero.000webhostapp.com/api/mysuperheroe', {
         idUser: localStorage.getItem('idUser'),
         idSuperhero: Superheroe.id,
       })
@@ -47,7 +47,7 @@ export class HomeComponent {
   addSuperhero(Superheroe: Superheroe) {
     this.spinner.show();
     axios
-      .post<Superheroe[]>('http://127.0.0.1:8000/api/mysuperheroe', {
+      .post<Superheroe[]>('https://laravelsuperhero.000webhostapp.com/api/mysuperheroe', {
         idUser: localStorage.getItem('idUser'),
         idSuperhero: Superheroe.id,
       })
@@ -65,14 +65,14 @@ export class HomeComponent {
   ngOnInit() {
     this.spinner.show();
     axios
-      .get<Superheroe[]>('http://127.0.0.1:8000/api/superheroe')
+      .get<Superheroe[]>('https://laravelsuperhero.000webhostapp.com/api/superheroe')
       .then(({ data }) => {
         this.Superheroes = data;
       });
 
     axios
       .get<Superheroe[]>(
-        `http://127.0.0.1:8000/api/mysuperheroe/${localStorage.getItem(
+        `https://laravelsuperhero.000webhostapp.com/api/mysuperheroe/${localStorage.getItem(
           'idUser'
         )}`
       )

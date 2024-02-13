@@ -16,7 +16,7 @@ export class ProfileComponent {
   changeProfile() {
     this.http
       .put(
-        `http://127.0.0.1:8000/api/user/info/${localStorage.getItem('idUser')}`,
+        `https://laravelsuperhero.000webhostapp.com/api/user/info/${localStorage.getItem('idUser')}`,
         this.userInfo
       )
       .subscribe((data: any) => {
@@ -44,7 +44,7 @@ export class ProfileComponent {
   ngOnInit() {
     this.http
       .get(
-        `http://127.0.0.1:8000/api/user/info/${localStorage.getItem('idUser')}`
+        `https://laravelsuperhero.000webhostapp.com/api/user/info/${localStorage.getItem('idUser')}`
       )
       .subscribe((data: any) => {
         this.userInfo = data[0];
