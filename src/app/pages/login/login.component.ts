@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, inject } from '@angular/core';
 import { Router } from '@angular/router';
+import axios from 'axios';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -17,15 +18,18 @@ export class LoginComponent {
   }
 
   login() {
-    this.http
+    axios
       .post('https://webapi-camilaescalant-camilas-projects-97c18b85.vercel.app/login', {
         email: this.email,
         password: this.password,
       })
-      .subscribe((data: any) => {
+      .then((data: any) => {
         localStorage.setItem('currentUser', data[0].email);
         localStorage.setItem('idUser', data[0].id);
         this.router.navigate(['/']);
-      });
+      })
+      .catch(() => {
+        alert("No existe el usuario")
+      })
   }
 }
