@@ -26,15 +26,13 @@ export class LoginComponent {
           password: this.password,
         }
       )
-      .then((data: any) => {
-        if (data.status === 200) {
-          localStorage.setItem('currentUser', data.email);
-          localStorage.setItem('idUser', data.id);
-          this.router.navigate(['/']);
-        }
+      .then(({ data }: any) => {
+        localStorage.setItem('currentUser', data[0].email);
+        localStorage.setItem('idUser', data[0].id);
+        this.router.navigate(['/']);
       })
       .catch(() => {
-        alert('No existe el usuario o los datos son incorrectos');
+        alert('No existe el usuario');
       });
-    }
+  }
   }
