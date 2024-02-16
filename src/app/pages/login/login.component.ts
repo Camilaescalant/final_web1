@@ -29,7 +29,7 @@ export class LoginComponent {
         this.router.navigate(['/']);
       })
       .catch(() => {
-        alert("No existe el usuario")
+        alert("Usuario no existe o los datos son incorrectos")
       })
   }
 }
