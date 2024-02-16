@@ -44,7 +44,7 @@ export class ProfileComponent {
   ngOnInit() {
     this.http
       .get(
-        `https://webapi-camilaescalant-camilas-projects-97c18b85.vercel.app//user/info/${localStorage.getItem('idUser')}`
+        `https://webapi-camilaescalant-camilas-projects-97c18b85.vercel.app/user/info/${localStorage.getItem('idUser')}`
       )
       .subscribe((data: any) => {
         this.userInfo = data[0];
