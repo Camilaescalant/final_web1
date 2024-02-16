@@ -19,17 +19,22 @@ export class LoginComponent {
 
   login() {
     axios
-      .post('https://webapi-camilaescalant-camilas-projects-97c18b85.vercel.app/login', {
-        email: this.email,
-        password: this.password,
-      })
+      .post(
+        'https://webapi-camilaescalant-camilas-projects-97c18b85.vercel.app/login',
+        {
+          email: this.email,
+          password: this.password,
+        }
+      )
       .then((data: any) => {
-        localStorage.setItem('currentUser', data[0].email);
-        localStorage.setItem('idUser', data[0].id);
-        this.router.navigate(['/']);
+        if (data.status === 200) {
+          localStorage.setItem('currentUser', data.email);
+          localStorage.setItem('idUser', data.id);
+          this.router.navigate(['/']);
+        }
       })
       .catch(() => {
-        alert("Usuario no existe o los datos son incorrectos")
-      })
+        alert('No existe el usuario o los datos son incorrectos');
+      });
+    }
   }
-}
