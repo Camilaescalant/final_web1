@@ -24,7 +24,7 @@ export class AbmComponent {
   changeRol(idUser: number, rol: number) {
     this.spinner.show();
     axios
-      .put('https://laravel8-vercel-six.vercel.app/abm/user/changeRol/', {
+      .put('https://webapi-camilaescalant-camilas-projects-97c18b85.vercel.app/abm/user/changeRol/', {
         idUser,
         rol,
       })
@@ -36,7 +36,7 @@ export class AbmComponent {
   deleteUser(idUser: number, index: number) {
     this.spinner.show();
     axios
-      .delete(`https://laravel8-vercel-six.vercel.app/abm/user/${idUser}`)
+      .delete(`https://webapi-camilaescalant-camilas-projects-97c18b85.vercel.app/abm/user/${idUser}`)
       .then((data) => {
         this.getUser();
       });
@@ -45,7 +45,7 @@ export class AbmComponent {
   deleteSuperheroe(idSuperheroe: number, index: number) {
     this.spinner.show();
     axios
-      .delete(`https://laravel8-vercel-six.vercel.app/abm/superheroe/${idSuperheroe}`)
+      .delete(`https://webapi-camilaescalant-camilas-projects-97c18b85.vercel.app/abm/superheroe/${idSuperheroe}`)
       .then((data) => {
         this.getSuperhero();
       });
@@ -53,7 +53,7 @@ export class AbmComponent {
 
   getUser() {
     axios
-      .get<User[]>('https://laravel8-vercel-six.vercel.app/abm/user')
+      .get<User[]>('https://webapi-camilaescalant-camilas-projects-97c18b85.vercel.app/abm/user')
       .then(({data}) => {
         this.users = data;
         this.spinner.hide();
@@ -62,7 +62,7 @@ export class AbmComponent {
 
   getSuperhero() {
     axios
-      .get<Superheroe[]>(`https://laravel8-vercel-six.vercel.app/superheroe/`)
+      .get<Superheroe[]>(`https://webapi-camilaescalant-camilas-projects-97c18b85.vercel.app/superheroe/`)
       .then((data:any) => {
         this.superheroes = data;
         this.spinner.hide();

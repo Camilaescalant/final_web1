@@ -21,7 +21,7 @@ export class RegisterComponent {
 
   register() {
     this.http
-      .post('https://laravel8-vercel-six.vercel.app/register', {
+      .post('https://webapi-camilaescalant-camilas-projects-97c18b85.vercel.app/register', {
         email: this.email,
         password: this.password,
         name: this.name,

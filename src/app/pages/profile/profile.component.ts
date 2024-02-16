@@ -16,7 +16,7 @@ export class ProfileComponent {
   changeProfile() {
     this.http
       .put(
-        `https://laravel8-vercel-six.vercel.app/user/info/${localStorage.getItem('idUser')}`,
+        `https://webapi-camilaescalant-camilas-projects-97c18b85.vercel.app/user/info/${localStorage.getItem('idUser')}`,
         this.userInfo
       )
       .subscribe((data: any) => {
@@ -44,7 +44,7 @@ export class ProfileComponent {
   ngOnInit() {
     this.http
       .get(
-        `https://laravel8-vercel-six.vercel.app/user/info/${localStorage.getItem('idUser')}`
+        `https://webapi-camilaescalant-camilas-projects-97c18b85.vercel.app//user/info/${localStorage.getItem('idUser')}`
       )
       .subscribe((data: any) => {
         this.userInfo = data[0];
