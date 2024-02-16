@@ -31,7 +31,7 @@ export class HomeComponent {
     this.spinner.show();
     this.mySuperheroes.splice(index, 1);
     axios
-      .put<Superheroe[]>('https://laravelsuperhero.000webhostapp.com/api/mysuperheroe', {
+      .put<Superheroe[]>('https://laravel8-vercel-six.vercel.app/mysuperheroe', {
         idUser: localStorage.getItem('idUser'),
         idSuperhero: Superheroe.id,
       })
@@ -47,7 +47,7 @@ export class HomeComponent {
   addSuperhero(Superheroe: Superheroe) {
     this.spinner.show();
     axios
-      .post<Superheroe[]>('https://laravelsuperhero.000webhostapp.com/api/mysuperheroe', {
+      .post<Superheroe[]>('https://laravel8-vercel-six.vercel.app/mysuperheroe', {
         idUser: localStorage.getItem('idUser'),
         idSuperhero: Superheroe.id,
       })
@@ -65,14 +65,14 @@ export class HomeComponent {
   ngOnInit() {
     this.spinner.show();
     axios
-      .get<Superheroe[]>('https://laravelsuperhero.000webhostapp.com/api/superheroe')
+      .get<Superheroe[]>('https://laravel8-vercel-six.vercel.app/superheroe')
       .then(({ data }) => {
         this.Superheroes = data;
       });
 
     axios
       .get<Superheroe[]>(
-        `https://laravelsuperhero.000webhostapp.com/api/mysuperheroe/${localStorage.getItem(
+        `https://laravel8-vercel-six.vercel.app/mysuperheroe/${localStorage.getItem(
           'idUser'
         )}`
       )

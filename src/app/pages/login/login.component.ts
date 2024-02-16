@@ -18,7 +18,7 @@ export class LoginComponent {
 
   login() {
     this.http
-      .post('https://laravelsuperhero.000webhostapp.com/api/login', {
+      .post('https://laravel8-vercel-six.vercel.app/login', {
         email: this.email,
         password: this.password,
       })

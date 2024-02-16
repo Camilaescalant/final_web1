@@ -24,7 +24,7 @@ export class AbmComponent {
   changeRol(idUser: number, rol: number) {
     this.spinner.show();
     axios
-      .put('https://laravelsuperhero.000webhostapp.com/api/abm/user/changeRol/', {
+      .put('https://laravel8-vercel-six.vercel.app/abm/user/changeRol/', {
         idUser,
         rol,
       })
@@ -36,7 +36,7 @@ export class AbmComponent {
   deleteUser(idUser: number, index: number) {
     this.spinner.show();
     axios
-      .delete(`https://laravelsuperhero.000webhostapp.com/api/abm/user/${idUser}`)
+      .delete(`https://laravel8-vercel-six.vercel.app/abm/user/${idUser}`)
       .then((data) => {
         this.getUser();
       });
@@ -45,7 +45,7 @@ export class AbmComponent {
   deleteSuperheroe(idSuperheroe: number, index: number) {
     this.spinner.show();
     axios
-      .delete(`https://laravelsuperhero.000webhostapp.com/api/abm/superheroe/${idSuperheroe}`)
+      .delete(`https://laravel8-vercel-six.vercel.app/abm/superheroe/${idSuperheroe}`)
       .then((data) => {
         this.getSuperhero();
       });
@@ -53,7 +53,7 @@ export class AbmComponent {
 
   getUser() {
     axios
-      .get<User[]>('https://laravelsuperhero.000webhostapp.com/api/abm/user')
+      .get<User[]>('https://laravel8-vercel-six.vercel.app/abm/user')
       .then(({data}) => {
         this.users = data;
         this.spinner.hide();
@@ -62,7 +62,7 @@ export class AbmComponent {
 
   getSuperhero() {
     axios
-      .get<Superheroe[]>(`https://laravelsuperhero.000webhostapp.com/api/superheroe/`)
+      .get<Superheroe[]>(`https://laravel8-vercel-six.vercel.app/superheroe/`)
       .then((data:any) => {
         this.superheroes = data;
         this.spinner.hide();
